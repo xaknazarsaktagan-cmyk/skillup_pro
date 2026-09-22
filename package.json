@@ -1,0 +1,18 @@
+{
+  "name": "skillup-dashboard-redesigned-final-(2)",
+  "version": "1.0.0",
+  "description": "1. Распакуйте архив. 2. Откройте `index.html` в браузере (Chrome, Edge, Firefox).    Если что-то не работает при открытии двойным кликом, запустите локальный сервер:    `python -m http.server 8000` в папке проекта и откройте http://localhost:8000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "sqlite3": "^6.0.1"
+  }
+}

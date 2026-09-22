@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Skill Up — платформа для обучения программированию</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/design-switcher.css">
+<script>
+  try {
+    const savedDesign = localStorage.getItem('skillup.design-preference.v1');
+    document.documentElement.dataset.design = ['light', 'dark', 'modern', 'creative'].includes(savedDesign) ? savedDesign : 'dark';
+  } catch (_) {
+    document.documentElement.dataset.design = 'dark';
+  }
+</script>
+</head>
+<body>
+<div id="app"><div class="skel" aria-busy="true" aria-label="Загрузка"><i></i><i></i><i></i></div></div>
+<div id="modal" hidden></div>
+<div id="toasts" aria-live="polite"></div>
+<!-- Порядок скриптов важен: каждый следующий использует объекты предыдущих -->
+<script src="js/data.js"></script>
+<script src="js/core.js"></script>
+<script src="js/views-learning.js"></script>
+<script src="js/views-community.js"></script>
+<script src="js/views-career.js"></script>
+<script src="js/design-switcher.js"></script>
+</body>
+</html>
