@@ -8,14 +8,8 @@ const PORT = 3000;
 app.use(express.json());
 app.use(cors());
 
-// SQLite деректер базасына қосылу
-const db = new sqlite3.Database('./database.db', (err) => {
-    if (err) {
-        console.error('Базаға қосылу қатесі:', err.message);
-    } else {
-        console.log('SQLite деректер базасына сәтті қосылды.');
-    }
-});
+
+const dbPath = process.env.VERCEL ? '/tmp/database.db' : './database.db';
 
 // Кесте жасау және мәлімет қосу
 db.run(`CREATE TABLE IF NOT EXISTS users (
@@ -42,7 +36,20 @@ app.get('/api/users', (req, res) => {
 });
 
 
+
+
+module.exports = app;
 app.use(express.static(__dirname));
 app.listen(PORT, () => {
     console.log(`Сервер жұмыс істеп тұр: http://localhost:${PORT}`);
 });
+
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Сервер жұмыс істеп тұр: ${PORT}`);
+  });
+}
+
+module.exports = app;
+
